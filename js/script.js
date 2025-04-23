@@ -6,7 +6,7 @@ class MysticDeck {
         this.answerBits = 0;
         this.maxBits = 5;
         this.selectContainer = document.getElementById('card-select');
-        this.circleContainer = document.getElementById('card-circle');
+        this.handContainer = document.getElementById('card-hand');
         this.revealContainer = document.getElementById('revealed-card');
         this.messageElement = document.getElementById('fate-message');
 
@@ -82,7 +82,7 @@ class MysticDeck {
         this.showNextCircle();
     }
     showNextCircle() {
-        this.circleContainer.innerHTML = '';
+        this.handContainer.innerHTML = '';
         const bit = 1 << this.currentBit;
         const circle = this.cards.filter(card => (card.binaryValue & bit) !== 0);
         console.log('تعداد کارت‌ها در گروه:', circle.length);
@@ -91,7 +91,7 @@ class MysticDeck {
             const img = document.createElement('img');
             img.src = card.image;
             img.alt = `${card.value} of ${card.suit}`;
-            this.circleContainer.appendChild(img);
+            this.handContainer.appendChild(img);
             Draggable.create(img, {
                 type: 'x,y',
                 inertia: true,
@@ -107,7 +107,7 @@ class MysticDeck {
                 img.classList.toggle('flipped');
             });
         });
-        this.arrangeCards(this.circleContainer);
+        this.arrangeCards(this.handContainer);
     }
     answer(isYes) {
         if (isYes) this.answerBits += 1 << this.currentBit;
@@ -157,7 +157,7 @@ class MysticDeck {
         document.getElementById('main-title').classList.remove('hidden');
         document.getElementById('step-1').classList.remove('hidden');
         this.selectContainer.innerHTML = '';
-        this.circleContainer.innerHTML = '';
+        this.handContainer.innerHTML = '';
         this.revealContainer.innerHTML = '';
         this.messageElement.textContent = 'راز کارت شما در انتظار است...';
         this.currentBit = 0;
