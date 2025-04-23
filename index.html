@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فالتو بگیرم😎</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+</head>
+<body>
+<canvas id="particle-bg"></canvas>
+<div id="temple">
+    <h2 id="main-title">یک کارت سرنوشت انتخاب کنید</h2>
+    <div id="step-1">
+        <div id="card-select" class="card-container"></div>
+        <button id="start-ritual-btn"><i class="fa-solid fa-eye"></i> کارتم را انتخاب کردم</button>
+    </div>
+    <div id="step-2" class="hidden">
+        <h2>آیا کارت شما در این دایره است؟</h2>
+        <div id="controls">
+            <button id="answer-yes-btn"><i class="fa-solid fa-check"></i> بله</button>
+            <button id="answer-no-btn"><i class="fa-solid fa-xmark"></i> خیر</button>
+        </div>
+        <div id="card-circle" class="card-container"></div>
+    </div>
+    <div id="step-3" class="hidden">
+        <h2>سرنوشت شما آشکار شد</h2>
+        <div id="revealed-card" class="card-container final-reveal"></div>
+        <p id="fate-message">راز کارت شما در انتظار است...</p>
+        <button id="reset-ritual-btn"><i class="fa-solid fa-redo"></i> آغاز دوباره</button>
+    </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
